@@ -12,39 +12,39 @@ import android.widget.TextView;
 
 public class user_activity extends AppCompatActivity implements View.OnClickListener {
 
-    public Button configBoton;
-    public Button continuarBoton;
-    public EditText nombreEstudiante;
+    private Button azulBoton;
+    private Button blancoBoton;
+    private Button negroBoton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_activity);
 
-        configBoton = findViewById(R.id.configBoton);
-        continuarBoton = findViewById(R.id.continuarBoton);
-        nombreEstudiante = findViewById(R.id.nombreEstudiante);
+        azulBoton = findViewById(R.id.azulBoton);
+        negroBoton = findViewById(R.id.negroBoton);
+        blancoBoton = findViewById(R.id.blancoBoton);
 
-        configBoton.setOnClickListener(this);
-        continuarBoton.setOnClickListener(this);
+        azulBoton.setOnClickListener(this);
+        negroBoton.setOnClickListener(this);
+        blancoBoton.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-
         switch(view.getId()){
-            case R.id.configBoton:
+            case R.id.azulBoton:
                 Intent i = new Intent(this, MainActivity.class);
                 startActivity(i);
                 break;
-            case R.id.continuarBoton:
-                String nombre = nombreEstudiante.getText().toString();
-                SharedPreferences preferences = getSharedPreferences("nombreEstudiante",MODE_PRIVATE);
-                preferences.edit().putString("nombre", nombre).apply();
-                Intent e = new Intent(this, nota_activity.class);
+            case R.id.blancoBoton:
+                Intent e = new Intent(this, MainActivity.class);
                 startActivity(e);
                 break;
+            case R.id.negroBoton:
+                Intent o = new Intent(this, MainActivity.class);
+                startActivity(o);
+                break;
         }
-
     }
 }
