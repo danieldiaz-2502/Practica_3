@@ -3,6 +3,7 @@ package com.example.practica_3;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -33,12 +34,13 @@ public class user_activity extends AppCompatActivity implements View.OnClickList
 
         switch(view.getId()){
             case R.id.configBoton:
-                String nombre = nombreEstudiante.getText().toString();
                 Intent i = new Intent(this, MainActivity.class);
                 startActivity(i);
-                i.putExtra("nombre", nombre);
                 break;
             case R.id.continuarBoton:
+                String nombre = nombreEstudiante.getText().toString();
+                SharedPreferences preferences = getSharedPreferences("nombreEstudiante",MODE_PRIVATE);
+                preferences.edit().putString("nombre", nombre).apply();
                 Intent e = new Intent(this, nota_activity.class);
                 startActivity(e);
                 break;

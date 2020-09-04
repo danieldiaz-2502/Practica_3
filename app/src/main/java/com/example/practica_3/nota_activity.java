@@ -28,7 +28,6 @@ public class nota_activity extends AppCompatActivity implements View.OnClickList
         quicesEdit = findViewById(R.id.quicesEdit);
         parcial1Edit = findViewById(R.id.parcial1Edit);
         parcial2Edit = findViewById(R.id.parcial2Edit);
-
         calcularBoton.setOnClickListener(this);
     }
 

@@ -22,8 +22,9 @@ public class resultado_activity extends AppCompatActivity implements View.OnClic
         otraVezBoton = findViewById(R.id.otraVezBoton);
         mensajeEdit = findViewById(R.id.mensajeEdit);
         notaFinal = findViewById(R.id.notaFinal);
-
         otraVezBoton.setOnClickListener(this);
+        String variableNombre = getSharedPreferences("nombreEstudiante", MODE_PRIVATE).getString("nombre", "No hay nombre");
+        mensajeEdit.setText("Hola " + variableNombre + ", tu nota final es de:");
 
     }
 
